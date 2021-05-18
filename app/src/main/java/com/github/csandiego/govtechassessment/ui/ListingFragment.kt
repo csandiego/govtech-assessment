@@ -10,8 +10,18 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.github.csandiego.govtechassessment.R
 import com.github.csandiego.govtechassessment.databinding.FragmentListingBinding
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
+import javax.inject.Provider
 
-class ListingFragment: Fragment(R.layout.fragment_listing) {
+@AndroidEntryPoint
+class ListingFragment : Fragment() {
+
+    @Inject
+    lateinit var allNotesListingFragmentProvider: Provider<AllNotesListingFragment>
+
+    @Inject
+    lateinit var favoriteNotesListingFragmentProvider: Provider<FavoriteNotesListingFragment>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,7 +45,11 @@ class ListingFragment: Fragment(R.layout.fragment_listing) {
 
             override fun getItemCount(): Int = 2
 
-            override fun createFragment(position: Int): Fragment = if (position == 0) AllNotesListingFragment() else FavoriteNotesListingFragment()
+            override fun createFragment(position: Int): Fragment =
+                if (position == 0)
+                    allNotesListingFragmentProvider.get()
+                else
+                    favoriteNotesListingFragmentProvider.get()
         }
         TabLayoutMediator(binding.tabLayout, binding.pager) { tab, position ->
             tab.text = if (position == 0) "All Notes" else "Favorites"

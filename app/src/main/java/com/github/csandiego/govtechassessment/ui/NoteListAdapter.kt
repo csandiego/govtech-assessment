@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.github.csandiego.govtechassessment.data.Note
 import com.github.csandiego.govtechassessment.databinding.ListItemBinding
 
-class NoteListAdapter: ListAdapter<Note, NoteListAdapter.ViewHolder>(ItemCallback()) {
+class NoteListAdapter : ListAdapter<Note, NoteListAdapter.ViewHolder>(ItemCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -19,10 +19,10 @@ class NoteListAdapter: ListAdapter<Note, NoteListAdapter.ViewHolder>(ItemCallbac
         holder.binding.textViewTitle.text = getItem(position).title
     }
 
-    class ViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
     }
 
-    class ItemCallback: DiffUtil.ItemCallback<Note>() {
+    class ItemCallback : DiffUtil.ItemCallback<Note>() {
 
         override fun areItemsTheSame(oldItem: Note, newItem: Note): Boolean {
             return oldItem.id == newItem.id

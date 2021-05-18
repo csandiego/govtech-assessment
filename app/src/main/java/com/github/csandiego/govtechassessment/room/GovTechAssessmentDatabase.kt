@@ -8,7 +8,7 @@ import com.github.csandiego.govtechassessment.data.Note
 
 @Database(entities = [Note::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
-abstract class GovTechAssessmentDatabase: RoomDatabase() {
+abstract class GovTechAssessmentDatabase : RoomDatabase() {
 
     abstract fun noteDao(): NoteDao
 }
