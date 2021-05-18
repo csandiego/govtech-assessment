@@ -8,8 +8,8 @@ import java.util.*
 data class Note(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
-    var title: String?,
-    var description: String?,
-    var isFavorite: Boolean?,
-    var createdAt: Date?
+    var title: String? = null,
+    var description: String? = null,
+    var isFavorite: Boolean? = null,
+    var createdAt: Date? = null
 )
