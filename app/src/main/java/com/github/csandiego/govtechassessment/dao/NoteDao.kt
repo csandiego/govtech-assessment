@@ -10,10 +10,10 @@ import com.github.csandiego.govtechassessment.data.Note
 @Dao
 interface NoteDao {
 
-    @Query("SELECT * FROM Note")
+    @Query("SELECT * FROM Note ORDER BY id DESC")
     fun getAll(): LiveData<List<Note>>
 
-    @Query("SELECT * FROM Note WHERE isFavorite = TRUE")
+    @Query("SELECT * FROM Note WHERE isFavorite = 1 ORDER BY id DESC")
     fun getFavorites(): LiveData<List<Note>>
 
     @Insert
