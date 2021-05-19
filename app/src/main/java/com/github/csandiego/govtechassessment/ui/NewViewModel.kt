@@ -27,9 +27,8 @@ class NewViewModel @Inject constructor(private val dao: NoteDao) : ViewModel() {
     }
 
     fun create() {
-        val note = Note(0, title, description, true, Date())
         viewModelScope.launch {
-            dao.insert(note)
+            dao.insert(Note(0, title, description, false, Date()))
             _created.value = true
         }
     }

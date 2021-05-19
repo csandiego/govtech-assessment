@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -13,9 +14,35 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:singleLine="true"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewFavorite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat consectetur ipsum, at vestibulum velit feugiat sit amet." />
+
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:ellipsize="end"
+        android:lines="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textViewTitle"
+        app:layout_constraintStart_toStartOf="@+id/textViewTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
+        tools:text="Donec finibus ultrices sem, in viverra elit ornare quis. Suspendisse a justo quam. Nam leo sem, efficitur viverra sodales eu, accumsan viverra elit. Quisque tempus diam ac erat faucibus ultrices. Vestibulum sodales viverra auctor. Vestibulum augue lacus, posuere sit amet porta at, fermentum a magna. Maecenas ante nulla, aliquet a scelerisque non, condimentum quis neque. Ut at posuere nibh. Ut dolor nisl, hendrerit sed nulla in, accumsan viverra augue. Proin in efficitur eros, nec viverra arcu. Mauris sed nibh tempus, vestibulum tellus sit amet, venenatis dolor. Suspendisse dui justo, laoreet eu viverra quis, consectetur fermentum mi." />
+
+    <ImageView
+        android:id="@+id/imageViewFavorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/btn_star_big_off" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

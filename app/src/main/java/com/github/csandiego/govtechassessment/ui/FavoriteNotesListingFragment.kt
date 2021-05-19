@@ -22,7 +22,9 @@ class FavoriteNotesListingFragment @Inject constructor() : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val adapter = NoteListAdapter()
+        val adapter = NoteListAdapter {
+            viewModel.unFavorite(it)
+        }
         viewModel.notes.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }

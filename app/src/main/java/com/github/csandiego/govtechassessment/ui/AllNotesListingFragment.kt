@@ -22,7 +22,9 @@ class AllNotesListingFragment @Inject constructor() : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val adapter = NoteListAdapter()
+        val adapter = NoteListAdapter {
+            viewModel.toggleFavorite(it)
+        }
         viewModel.notes.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
